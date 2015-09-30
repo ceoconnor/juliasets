@@ -1,7 +1,7 @@
 import cmath
 import numpy as np
 
-class JuliaSet:
+class JuliaSet(object):
     def __init__(self, c, n = 100):
         self.c = c
         self.n = n
@@ -21,11 +21,13 @@ class JuliaSet:
     def setcomplexplane(self, _d):
         x, y = -2, -2
         self._complexplane = []
-        while (x <= 2 and y <= 2):
-            z = complex(x,y)
-            self._complexplane.append(z)
+        while (x <= 2):
+            y=-2
+            while(y<=2):
+                z = complex(x,y)
+                self._complexplane.append(z)
+                y = self._d + y
             x = self._d + x
-            y = self._d + y
         
     def set_spacing(self, d):
         self._d = d
